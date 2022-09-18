@@ -12,6 +12,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
+import toast, { Toaster } from 'react-hot-toast';
 import * as ReactBootStrap from "react-bootstrap";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -34,6 +35,16 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+const notify = () => toast.success('Supplier deleted successfully!',{
+  duration: 2666,
+  position: "top-center",
+  icon: '👏',
+  theme: {
+    primary: 'green',
+    secondary: 'black',
+  }
+});
+
 function Supplier() {
   const [suppliers, setSuppliers] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -49,12 +60,13 @@ function Supplier() {
       if (getSupplierResponse.status === 200) {
         setSuppliers(getSupplierResponse.data);
       } else {
+        navigate("/not-found");
         setSuppliers([]);
       }
       setLoading(false);
     } catch (err) {
       setSuppliers([]);
-      console.error(err);
+      navigate("/not-found");
     }
   };
   const deleteSupplierEvent = async (id) => {
@@ -110,9 +122,11 @@ function Supplier() {
                     <Button  onClick={(e) => {
                       e.stopPropagation();
                       deleteSupplierEvent(supplier.id);
+                      notify();
                     }} variant="outlined" startIcon={<DeleteIcon />}>
                       Delete
                     </Button>
+                    <Toaster />
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

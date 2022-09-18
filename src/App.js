@@ -8,6 +8,7 @@ import {
   NotFound,
   ViewSuppliers,
   AddSupplier,
+  SupplierDetail
 } from "./components";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/view" element={<ViewSuppliers />} />
+            <Route path="/supplier/:id" element={<SupplierDetail />} />
             <Route path="/add-supplier" element={<AddSupplier />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
