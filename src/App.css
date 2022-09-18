@@ -1,0 +1,7 @@
+.link{
+    font-weight: bolder;
+    transition: .1s linear;
+}
+.link:hover{
+    color: red;
+}
