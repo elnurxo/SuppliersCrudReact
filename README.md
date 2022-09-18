@@ -22,8 +22,7 @@ Bonus:
 
 # Getting Started with Create React App
 
-Fully Responsive single page react application to get integrated with the given API using axios. You can simply add new supplier, delete existing supplier
-or go to one of the existing supplier's page. useState, useEffect, useParams, useNavigate - used in project
+Fully Responsive single page react application to get integrated with the given API using axios. You can simply add new supplier, delete existing supplier or go to one of the existing supplier's page. useState, useEffect, useParams, useNavigate, material UI, react Bootstrap, react Router v6, react hot toast - used in project
 
 ## Available Scripts
 
