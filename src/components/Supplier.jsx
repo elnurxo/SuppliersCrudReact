@@ -50,8 +50,24 @@ function Supplier() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
+    const getAndSetSuppliers = async () => {
+      try {
+        setLoading(true);
+        const getSupplierResponse = await getSuppliers();
+        if (getSupplierResponse.status === 200) {
+          setSuppliers(getSupplierResponse.data);
+        } else {
+          navigate("/not-found");
+          setSuppliers([]);
+        }
+        setLoading(false);
+      } catch (err) {
+        setSuppliers([]);
+        navigate("/not-found");
+      }
+    };
     getAndSetSuppliers();
-  }, []);
+  }, [navigate]);
 
   const getAndSetSuppliers = async () => {
     try {
