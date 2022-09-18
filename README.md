@@ -12,7 +12,7 @@ Notes:
 
 API Link: https://northwind.vercel.app/api/suppliers
 
-Deploy Link: https://suppliercrudbyelnurxo.netlify.app/view
+Deploy Link: https://suppliercrudbyelnurxo.netlify.app/
 
 Bonus:
 
